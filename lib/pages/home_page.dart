@@ -9,7 +9,54 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: Drawer(),
+        drawerScrimColor: Colors.black.withOpacity(
+          0.6,
+        ), // color que aparece por detrás del menu hamburguesa
+        drawer: Drawer(
+          width: 300, //definir el ancho del menu
+          shape: RoundedRectangleBorder(
+            // borderRadius: BorderRadiusGeometry.circular(50),
+            borderRadius: BorderRadiusGeometry.horizontal(
+              right: Radius.circular(50),
+            ),
+          ),
+          child: ListView(
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(color: Colors.indigo),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FlutterLogo(size: 75),
+                      Text(
+                        "Jhonny Gallegos Mendoza",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              ListTile(leading: Icon(Icons.home), title: Text("Inicio")),
+              ListTile(leading: Icon(Icons.person), title: Text("Perfil")),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text("Configuración"),
+              ),
+              Divider(),
+              ListTile(leading: Icon(Icons.person), title: Text("Perfil")),
+              ExpansionTile(
+                title: Text("Ajustes"),
+                leading: Icon(Icons.settings),
+                children: [
+                  ListTile(leading: Icon(Icons.home), title: Text("Inicio")),
+                  ListTile(leading: Icon(Icons.person), title: Text("Perfil")),
+                ],
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(
           title: Row(
             mainAxisSize: MainAxisSize.min,
