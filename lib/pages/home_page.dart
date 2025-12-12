@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelappg14/widgets/destination_card_2_widget.dart';
 import 'package:travelappg14/widgets/destination_card_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -46,6 +47,11 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: 16),
+              DestinationCard2Widget(),
+              DestinationCard2Widget(),
+              DestinationCard2Widget(),
+              DestinationCard2Widget(),
             ],
           ),
         ),

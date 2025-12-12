@@ -11,7 +11,6 @@ class DestinationCardWidget extends StatelessWidget {
       width: 170,
       height: 220,
       decoration: BoxDecoration(
-        color: Colors.red,
         borderRadius: BorderRadius.circular(25),
         image: DecorationImage(
           colorFilter: ColorFilter.mode(
@@ -20,14 +19,61 @@ class DestinationCardWidget extends StatelessWidget {
           ),
           fit: BoxFit.cover,
           image: NetworkImage(
-            "https://cdn.pixabay.com/photo/2020/02/16/07/55/beach-4852830_1280.jpg",
+            "https://images.pexels.com/photos/3538245/pexels-photo-3538245.jpeg",
           ),
         ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(children: []),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.45),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text("NEW", style: TextStyle(color: Colors.white)),
+              ),
+              SizedBox(
+                height: 40,
+                width: 80,
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Positioned(
+                      right: 0,
+                      child: CircleAvatar(
+                        radius: 16,
+                        backgroundImage: NetworkImage(
+                          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 20,
+                      child: CircleAvatar(
+                        radius: 16,
+                        backgroundImage: NetworkImage(
+                          "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg",
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 40,
+                      child: CircleAvatar(
+                        radius: 16,
+                        backgroundImage: NetworkImage(
+                          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg",
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
