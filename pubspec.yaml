@@ -34,6 +34,7 @@ dependencies:
   carousel_slider: ^5.1.1
   getwidget: ^7.0.0
   flutter_native_splash: ^2.4.7
+ 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -42,6 +43,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.4
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -72,11 +74,18 @@ flutter_native_splash:
 
   android: true
   ios: true
-  
+
   android_12:
     color: "#02153D"
     image: assets/icons/logo.jpg
 
+flutter_launcher_icons: 
+  android: true
+  ios: true
+
+  image_path: "assets/icons/logo.jpg"
+  adaptive_icon_background: "#02153D"
+  adaptive_icon_foreground: "assets/icons/logo.jpg"
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
