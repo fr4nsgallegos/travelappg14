@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelappg14/widgets/custom_expansion_tile.dart';
 import 'package:travelappg14/widgets/destination_card_2_widget.dart';
 import 'package:travelappg14/widgets/destination_card_widget.dart';
 
@@ -52,6 +53,14 @@ class HomePage extends StatelessWidget {
                 children: [
                   ListTile(leading: Icon(Icons.home), title: Text("Inicio")),
                   ListTile(leading: Icon(Icons.person), title: Text("Perfil")),
+                ],
+              ),
+              CustomExpansionTile(
+                title: "Opciones",
+                children: [
+                  ListTile(title: Text("Opción 1")),
+                  ListTile(title: Text("Opción 1")),
+                  ListTile(title: Text("Opción 1")),
                 ],
               ),
             ],
