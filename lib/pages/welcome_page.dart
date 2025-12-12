@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:travelappg14/preferences/preferences_service.dart';
 import 'package:travelappg14/widgets/welcome_widget.dart';
 
 class WelcomePage extends StatelessWidget {

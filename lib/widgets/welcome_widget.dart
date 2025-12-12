@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:travelappg14/pages/home_page.dart';
+import 'package:travelappg14/pages/home_page_shared_preferences.dart';
+import 'package:travelappg14/preferences/preferences_service.dart';
 
 class WelcomeWidget extends StatelessWidget {
   String title;
@@ -16,6 +19,11 @@ class WelcomeWidget extends StatelessWidget {
     required this.size,
     this.showButton = false,
   });
+  PreferencesService preferencesService = PreferencesService();
+
+  void guardarYaInicio() async {
+    await preferencesService.setYaInicio();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +57,13 @@ class WelcomeWidget extends StatelessWidget {
               ? Padding(
                   padding: EdgeInsets.only(top: 40),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      guardarYaInicio();
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
+                    },
                     child: Text("Vamos!!!"),
                   ),
                 )

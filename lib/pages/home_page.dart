@@ -1,71 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:travelappg14/preferences/preferences_service.dart';
+import 'package:travelappg14/widgets/destination_card_widget.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final prefs = PreferencesService();
-  int contador = 10;
-  String nombre = "sin nombre";
-
-  void saveCounter() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt("counter", contador);
-    // alacenando otras
-    await prefs.setString("user", "jgallegos");
-    await prefs.setStringList("products", ["papa", "durazno"]);
-  }
-
-  void leerContador() async {
-    final prefs = await SharedPreferences.getInstance();
-    int? contadorAux = prefs.getInt("counter");
-    contador = contadorAux ?? 0;
-    setState(() {});
-  }
-
-  void cargarNombre() async {
-    final name = await prefs.getUserName();
-    nombre = name ?? " - ";
-    setState(() {});
-  }
-
-  void guardarNombre() async {
-    await prefs.setUserName("jhony gallegos");
-    cargarNombre();
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    leerContador();
-    cargarNombre();
-  }
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(contador.toString(), style: TextStyle(fontSize: 30)),
-            ElevatedButton(
-              onPressed: () {
-                contador++;
-                saveCounter();
-                setState(() {});
-                guardarNombre();
-              },
-              child: Text("Agregar 1"),
-            ),
-
-            Text(nombre, style: TextStyle(fontSize: 30)),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        drawer: Drawer(),
+        appBar: AppBar(
+          title: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.rocket, color: Colors.cyan),
+              SizedBox(width: 8),
+              Text("Discount tour"),
+            ],
+          ),
+          centerTitle: true,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ListView(
+            children: [
+              Text(
+                "Find the best tour",
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w400),
+              ),
+              Text(
+                "It is a long established fact that a reader will be distracted by the readable content ",
+              ),
+              SizedBox(height: 16),
+              Text(
+                "Country",
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 26),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    DestinationCardWidget(),
+                    DestinationCardWidget(),
+                    DestinationCardWidget(),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
